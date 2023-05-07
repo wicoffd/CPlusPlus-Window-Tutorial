@@ -92,8 +92,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     wndclassex.cbSize        = sizeof(WNDCLASSEX);
     wndclassex.style         = 0;
     wndclassex.lpfnWndProc   = WndProc;
-    wndclassex.cbClsExtra    = 0;
     wndclassex.cbWndExtra    = 0;
+    wndclassex.cbClsExtra    = 0;
     wndclassex.hInstance     = hInstance;
     wndclassex.hIcon         = LoadIcon(NULL, IDI_APPLICATION);
     wndclassex.hCursor       = LoadCursor(NULL, IDC_ARROW);
