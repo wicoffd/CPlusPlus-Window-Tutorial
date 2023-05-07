@@ -16,11 +16,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
     switch(msg)
     {
         case WM_LBUTTONDOWN: // show the user what the name of our program is when they click on our window
-        // this code does not stand on it's own, it can't just be slapped into our code any old place
+            // this code does not stand on it's own, it can't just be slapped into our code any old place
         { // curly braces are required when declaring variables inside a switch() statement
             char szFileName[MAX_PATH];// MAX_PATH is a handy macro included via <windows.h> that is defined to the maximum length of a buffer needed to store a filename under Win32
             HINSTANCE hInstance = GetModuleHandle(NULL); // HINSTANCE refers to the executable module (our program, the .exe file)
-                                                                     // GetModuleHandle() gives us this
+            // GetModuleHandle() gives us this
             GetModuleFileName(hInstance, szFileName, MAX_PATH); // null terminated string
 
             MessageBox(hwnd, szFileName, "This program is:", MB_OK | MB_ICONINFORMATION);
@@ -57,9 +57,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
             return 0L;
 
         case WM_ERASEBKGND: // If you set the class background brush to NULL, however,
-                            // the system sends a WM_ERASEBKGND message to your window
-                            // procedure whenever the window background must be drawn,
-                            // letting you draw a custom background.
+            // the system sends a WM_ERASEBKGND message to your window
+            // procedure whenever the window background must be drawn,
+            // letting you draw a custom background.
             hdc = (HDC) wParam;
             GetClientRect(hwnd, &rc);
             SetMapMode(hdc, MM_ANISOTROPIC);
@@ -109,7 +109,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
         return 0;
     }
 
-    // Step 2: Creating the Window
     hwnd = CreateWindowEx(
             WS_EX_CLIENTEDGE,
             g_szClassName,
@@ -117,6 +116,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
             WS_OVERLAPPEDWINDOW,
             CW_USEDEFAULT, CW_USEDEFAULT, 240, 120,
             NULL, NULL, hInstance, NULL);
+    // Step 2: Creating the Window
 
     if(hwnd == NULL)
     {
